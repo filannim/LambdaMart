@@ -243,7 +243,7 @@ class LambdaMART:
 		idcg = [ideal_dcg(scores) for scores in true_scores]
 
 		for k in xrange(self.number_of_trees):
-			print 'Tree %d' % (k)
+			print('Tree {}'.format(k))
 			lambdas = np.zeros(len(predicted_scores))
 			w = np.zeros(len(predicted_scores))
 			pred_scores = [predicted_scores[query_indexes[query]] for query in query_keys]
