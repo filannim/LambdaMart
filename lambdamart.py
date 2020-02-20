@@ -23,7 +23,7 @@ def dcg(scores):
 	"""
 	return np.sum([
 						(np.power(2, scores[i]) - 1) / np.log2(i + 2)
-						for i in xrange(len(scores))
+						for i in range(len(scores))
 					])
 
 def dcg_k(scores, k):
