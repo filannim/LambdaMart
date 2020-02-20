@@ -116,7 +116,7 @@ def create_tree(data, all_pos_split, label, max_depth, ideal_ls, current_depth =
 	var_spaces = [data.iloc[:,col].tolist() for col in xrange(data.shape[1])]
 	cols = [col for col in xrange(data.shape[1])]
 	pool = Pool()
-	for split, error, ierr, numf in pool.map(find_splits_parallel, zip(var_spaces, repeat(label), cols)):
+	for (split, error, ierr, numf), col in zip(pool.map(find_splits_parallel, zip(var_spaces, repeat(label), cols)), cols):
 		if not min_error or error < min_error:
 			min_error = error
 			split_var = col
